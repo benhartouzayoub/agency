@@ -22,16 +22,14 @@ export default function Footer() {
         <Box sx={styles.left}>
           <Logo />
           <Text as="p">
-            &copy; {new Date().getFullYear()} All right reserved - Design &
-            Developed by RedQ, Inc
+            &copy; {new Date().getFullYear()} All right reserved - alphanet strategies
           </Text>
         </Box>
         <Box sx={styles.right}>
-          <Link path="/" label="Home" />
-          <Link path="/" label="Adversite" />
-          <Link path="/" label="Supports" />
-          <Link path="/" label="Marketing" />
-          <Link path="/" label="FAQ" />
+          <Link path="/" label="Accueil" />
+          <Link path="/" label="Services" />
+          <Link path="/" label="Fonctionnalité" />
+          <Link path="/" label="Support" />
         </Box>
       </Container>
     </footer>

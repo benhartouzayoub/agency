@@ -1,63 +1,67 @@
 import React from 'react';
 import { Box, Container, Grid, Heading, Text } from 'theme-ui';
 import BlockTitle from 'components/block-title';
-import Image from 'components/image';
-
-import icon1 from 'assets/icons/service-1-1.svg';
-import icon2 from 'assets/icons/service-1-2.svg';
-import icon3 from 'assets/icons/service-1-3.svg';
-import icon4 from 'assets/icons/service-1-4.svg';
+import { FaLaptop, FaMobileAlt, FaServer, FaPalette } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
 const SERVICES_DATA = [
   {
-    icon: icon1,
-    title: 'Unlimited Customization',
+    icon: FaLaptop,
+    title: 'DÉVELOPPEMENT WEB',
     text:
-      'Get your blood tests delivered at home collect a sample from the your blood tests.',
+      'Créez des sites web sur mesure qui correspondent à votre vision et à vos besoins spécifiques.',
   },
   {
-    icon: icon2,
-    title: 'Vector shape & resizable',
+    icon: FaMobileAlt,
+    title: 'APPLICATION MOBILE',
     text:
-      'Get your blood tests delivered at home collect a sample from the your blood tests.',
+      'Développez des applications mobiles innovantes pour atteindre votre public où qu\'il soit.',
   },
   {
-    icon: icon3,
-    title: 'Editing freedom',
+    icon: FaServer,
+    title: 'HÉBERGEMENT & SEO',
     text:
-      'Get your blood tests delivered at home collect a sample from the your blood tests.',
+      'Optimisez votre présence en ligne avec notre service d\'hébergement fiable et nos solutions de référencement.',
   },
   {
-    icon: icon4,
-    title: 'Best Award history',
+    icon: FaPalette,
+    title: 'CONCEPTION GRAPHIQUE',
     text:
-      'Get your blood tests delivered at home collect a sample from the your blood tests.',
+      'Créez des designs graphiques captivants pour votre marque, vos produits et vos campagnes de marketing.',
   },
 ];
 
 const Services = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
+
   return (
     <Box sx={styles.services} id="services">
       <Container>
         <BlockTitle
-          slogan="Quality features"
-          title="Meet exciting feature of app"
+          slogan="Des fonctionnalités de qualité"
+          title="Découvrez les services que nous proposons"
           styles={styles.blockTitle}
         />
         <Grid sx={styles.grid}>
-          {SERVICES_DATA.map((service, index) => (
-            <Box
-              className="service-card"
-              sx={styles.serviceCard}
-              key={`service-post-${index}`}
-            >
-              <Box className="service-icon" sx={styles.icon}>
-                <Image src={service.icon} alt="" />
+          {SERVICES_DATA.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Box
+                className={`service-card ${inView ? 'animated' : ''}`}
+                sx={styles.serviceCard}
+                key={`service-post-${index}`}
+                ref={ref}
+              >
+                <div className="service-icon">
+                  <Icon size={50} color="#4a8efd" />
+                </div>
+                <Heading as="h3">{service.title}</Heading>
+                <Text as="p">{service.text}</Text>
               </Box>
-              <Heading as="h3">{service.title}</Heading>
-              <Text as="p">{service.text}</Text>
-            </Box>
-          ))}
+            );
+          })}
         </Grid>
       </Container>
     </Box>
@@ -68,25 +72,7 @@ export default Services;
 
 const styles = {
   services: {
-    pt: ['80px', null, null, null, null, null, '140px'],
-    '.service-card:nth-of-type(2)': {
-      '.service-icon': {
-        backgroundImage:
-          'linear-gradient(320.89deg, #25D9D9 10.83%, rgba(37, 217, 217, 0.5) 88.7%)',
-      },
-    },
-    '.service-card:nth-of-type(3)': {
-      '.service-icon': {
-        backgroundImage:
-          'linear-gradient(319.4deg, #0898E7 5.17%, rgba(8, 152, 231, 0.5) 94.34%)',
-      },
-    },
-    '.service-card:nth-of-type(4)': {
-      '.service-icon': {
-        backgroundImage:
-          'linear-gradient(322.63deg, #FF9066 9.94%, rgba(255, 144, 102, 0.5) 91.14%)',
-      },
-    },
+    pt: ['80px', null, null, null, null, null, '120px'],
   },
   blockTitle: {
     textAlign: 'center',
@@ -117,6 +103,16 @@ const styles = {
   },
   serviceCard: {
     textAlign: 'center',
+    opacity: 0, // Initially set opacity to 0
+    transition: 'opacity 0.5s ease', // Add transition for opacity
+    '&.animated': {
+      opacity: 1, // Change opacity to 1 when .animated class is applied
+    },
+    '.service-icon': {
+      transition: 'transform 0.5s ease, opacity 0.5s ease', // Add transition for icon
+      transform: 'translateY(20px)',
+      opacity: 0,
+    },
     h3: {
       margin: 0,
       fontSize: ['18px', null, null, 3],
@@ -125,6 +121,8 @@ const styles = {
       color: 'black',
       mt: ['30px', null, null],
       mb: ['20px', null, null],
+      opacity: 0,
+      transition: 'opacity 0.5s ease', // Add transition for heading
     },
     p: {
       margin: 0,
@@ -133,6 +131,12 @@ const styles = {
       width: '100%',
       maxWidth: [null, null, null, null, '84%', '100%'],
       mx: [null, null, null, null, 'auto', '0'],
+      opacity: 0,
+      transition: 'opacity 0.5s ease', // Add transition for text
+    },
+    '&.animated .service-icon, &.animated h3, &.animated p': {
+      opacity: 1,
+      transform: 'translateY(0)',
     },
   },
 };

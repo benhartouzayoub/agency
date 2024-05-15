@@ -8,27 +8,20 @@ import img1 from 'assets/cta-2-1.png';
 
 const CustomerSupport = () => {
   return (
-    <Box as="section" sx={styles.customerSupport}>
+    <Box as="section" sx={styles.customerSupport} id="support">
       <Container>
         <Grid sx={styles.row}>
           <Box sx={styles.col}>
             <Box sx={styles.content}>
               <Heading as="h3">
-                Free Customer Support to ensure what you like to expect
+              Support client gratuit pour garantir ce que vous aimez.
               </Heading>
               <Text as="p">
-                We offer a risk-free trial period of up to two weeks. You will
-                only have to pay if you are happy with the developer and wish to
-                continue. If you are unsatisfied, we’ll refund payment or fix
-                issues on our dime period customers.
+              Nous offrons une période d'essai sans risque pouvant aller jusqu'à deux semaines. Vous ne paierez que si vous êtes satisfait du service et souhaitez continuer. Si vous n'êtes pas satisfait, nous rembourserons le paiement ou réglerons les problèmes à nos frais.
               </Text>
               <Text as="p" sx={styles.specialText}>
-                If you are happy with the developer and wish to continue. If you
-                are unsatisfied, we’ll refund payment or fix issues.
+              Si vous êtes satisfait du service et souhaitez continuer. Si vous n'êtes pas satisfait, nous rembourserons le paiement ou réglerons les problèmes.
               </Text>
-              <Link path="/" sx={styles.link}>
-                Learn more <FaAngleRight />
-              </Link>
             </Box>
           </Box>
           <Box sx={styles.col}>
@@ -95,17 +88,5 @@ const styles = {
   specialText: {
     color: 'heading',
     opacity: 0.6,
-  },
-  link: {
-    color: 'primary',
-    fontSize: [1, null, 2],
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    fontWeight: 'bold',
-    mt: ['10px', null, null, null, '10px'],
-    svg: {
-      position: 'relative',
-      top: '3px',
-    },
   },
 };

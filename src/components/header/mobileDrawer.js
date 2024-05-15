@@ -4,7 +4,6 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import Drawer from 'components/drawer';
 import { DrawerContext } from 'contexts/drawer/drawer.context';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
-import { Link } from 'components/link';
 import { Facebook, Twitter, Github, Dribbble } from 'components/customIcon';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import menuItems from './header.data';
@@ -72,12 +71,6 @@ const MobileDrawer = () => {
               </ScrollLink>
             ))}
           </Box>
-
-          <Box sx={styles.menuFooter}>
-            <Button variant="primary" sx={styles.button}>
-              Register Now
-            </Button>
-          </Box>
         </Box>
       </Scrollbars>
     </Drawer>
@@ -138,28 +131,6 @@ const styles = {
     },
   },
 
-  menuFooter: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    mt: 'auto',
-  },
-
-  button: {
-    fontSize: '15px',
-    fw: '700',
-    height: '48px',
-    borderRadius: '3px',
-    cursor: 'pointer',
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    py: '0',
-    backgroundColor: 'primary',
-    color: '#fff',
-  },
 };
 
 export default MobileDrawer;

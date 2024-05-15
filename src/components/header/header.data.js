@@ -1,18 +1,18 @@
 export default [
   {
     path: 'banner',
-    label: 'Home',
+    label: 'Accueil',
   },
   {
     path: 'services',
     label: 'Services',
   },
   {
-    path: 'testimonials',
-    label: 'Testimonials',
+    path: 'boostAgencies',
+    label: 'Fonctionnalité',
   },
   {
-    path: 'news',
-    label: 'News',
+    path: 'support',
+    label: 'Support',
   },
 ];

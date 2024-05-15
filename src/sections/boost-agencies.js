@@ -1,45 +1,40 @@
 import React from 'react';
 import { Box, Container, Flex, Heading, Text } from 'theme-ui';
 import Image from 'components/image';
-import { Link } from 'components/link';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 
-import { FaAngleRight } from 'react-icons/fa';
-import image1 from 'assets/boost-1-1.png';
+
+import image1 from 'assets/undraw_adventure_re_ncqp.svg';
 
 const BoostAgencies = () => {
   return (
-    <Box sx={styles.boostAgencies}>
+    <Box sx={styles.boostAgencies} id="boostAgencies">
       <Container>
         <Box sx={styles.row}>
           <Flex sx={styles.col}>
             <Box sx={styles.content}>
               <Box sx={styles.titleBox}>
                 <Heading as="h3">
-                  Boost your agencies by choosing Ninja Developers
+                CE QUI NOUS DIFFÉRENCIE
                 </Heading>
                 <Text as="p">
-                  Create custom landing pages with Shades that convert more
-                  visitors than any website, no coding required.
+                Avec notre approche de conception Web, nos méthodes continuent d’être prouvé dans un marché difficile en continu à la prestation de ce que nous promettons.
                 </Text>
               </Box>
               <Box as="ul" sx={styles.list}>
                 <Text as="li">
                   <IoIosCheckmarkCircle />
-                  Unlimited design possibility
+                  Nous sommes une équipe créative
                 </Text>
                 <Text as="li">
                   <IoIosCheckmarkCircle />
-                  Completely responsive features
+                  Five-star support team
                 </Text>
                 <Text as="li">
                   <IoIosCheckmarkCircle />
-                  Easy to customize plugins
+                  Service entièrement intégré
                 </Text>
               </Box>
-              <Link path="/" sx={styles.link}>
-                Learn more <FaAngleRight />
-              </Link>
             </Box>
           </Flex>
           <Flex sx={styles.col}>
@@ -113,19 +108,6 @@ const styles = {
       lineHeight: ['26px', null, null, 1.8, null, 2.06],
       padding: ['0 20px', null, null, '0'],
       mt: ['15px'],
-    },
-  },
-  link: {
-    color: 'primary',
-    fontSize: [1, null, 2],
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    fontWeight: 'bold',
-    pl: ['30px', null, null, '4px', null, '4px'],
-    mt: ['5px', null, null, null, '10px'],
-    svg: {
-      position: 'relative',
-      top: '3px',
     },
   },
   content: {
