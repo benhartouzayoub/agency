@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default [{\n  path: 'banner',\n  label: 'Accueil'\n}, {\n  path: 'services',\n  label: 'Services'\n}, {\n  path: 'boostAgencies',\n  label: 'Fonctionnalité'\n}, {\n  path: 'support',\n  label: 'Support'\n}];","map":null,"metadata":{},"sourceType":"module"}
